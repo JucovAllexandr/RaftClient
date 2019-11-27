@@ -1,0 +1,10 @@
+#include <QUuid>
+
+class RaftProtocol
+{
+    PROP(QUuid id SOURCEONLYSETTER);
+    SIGNAL(RequestVote(QUuid candidateId, uint term));
+    SLOT(ResponseVote(QUuid senderId, uint term, bool granted));
+    SIGNAL(AppendEntries(uint term, QUuid leaderId));
+    SIGNAL(AppendString(QString str));
+};
